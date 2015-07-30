@@ -1,0 +1,13 @@
+compileJava.options.encoding = "UTF-8"
+sourceCompatibility = "1.6"
+targetCompatibility = "1.6"
+
+sourceSets {
+	main.java.srcDir( 'src' )
+}
+
+eclipse{
+	project{
+		name = appName + "-library"
+	}
+}

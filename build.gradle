@@ -1,0 +1,35 @@
+allprojects{
+	apply plugin: "eclipse"
+	apply plugin: "idea"
+	
+	version = "1.0"
+	ext{
+		vendor = "Yengas"
+		appName = "OsuSongPicker"
+	}
+	
+	repositories{
+		mavenCentral()
+	}
+}
+
+project(":library"){
+	apply plugin: "java"
+	
+	dependencies{
+		//compile "com.google.code.gson:gson:2.3.1"
+	}
+}
+
+project(":desktop"){
+	apply plugin: "java"
+	
+	dependencies{
+		compile project(":library")
+		compile "com.iheartradio.m3u8:open-m3u8:0.1.0"
+	}
+}
+
+tasks.eclipse.doLast{
+	delete ".project"
+}
